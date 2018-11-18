@@ -16,6 +16,7 @@ namespace ContactsAppUI
         public Form1()
         {
             InitializeComponent();
+            var project = new project();
         }
 
         private void Form1_Load(object sender, EventArgs e)
