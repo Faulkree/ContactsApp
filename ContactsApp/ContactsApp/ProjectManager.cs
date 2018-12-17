@@ -20,7 +20,7 @@ namespace ContactsApp
         /// <param name="data">Путь</param>
         /// <param name="project">Сериализуемый класс</param>
        // public static string _path = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic) + "/ContactsApp.notes";
-        public static string _path = @"C:\Users\Василиса\MyMusic";
+        public static string _path = @"C:\Users\Василиса\MyMusickkk";
         public static void Serialization(Project data, string fpath)
         {
             JsonSerializer serializer = new JsonSerializer();
@@ -43,7 +43,7 @@ namespace ContactsApp
             JsonSerializer serializer = new JsonSerializer();
             if (System.IO.File.Exists(_path) == false)
          {
-                using (StreamWriter sw = new StreamWriter(fpath));
+                using (StreamWriter sw = new StreamWriter(fpath)) ;
             }
             using (StreamReader sr = new StreamReader(fpath))
             using (JsonReader reader = new JsonTextReader(sr))

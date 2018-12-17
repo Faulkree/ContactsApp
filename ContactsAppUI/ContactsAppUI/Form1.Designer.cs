@@ -164,6 +164,7 @@
             this.NameTextBox1.Name = "NameTextBox1";
             this.NameTextBox1.Size = new System.Drawing.Size(248, 20);
             this.NameTextBox1.TabIndex = 23;
+            this.NameTextBox1.TextChanged += new System.EventHandler(this.NameTextBox1_TextChanged);
             // 
             // PhoneTextBox1
             // 
@@ -185,6 +186,7 @@
             this.VKTextBox1.Name = "VKTextBox1";
             this.VKTextBox1.Size = new System.Drawing.Size(248, 20);
             this.VKTextBox1.TabIndex = 26;
+            this.VKTextBox1.TextChanged += new System.EventHandler(this.VKTextBox1_TextChanged);
             // 
             // BirthTimePicker1
             // 

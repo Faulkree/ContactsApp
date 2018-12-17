@@ -14,52 +14,73 @@ namespace ContactsAppUI
     public partial class Form2 : Form
     {
         private Contact _contactsplus = new Contact();
-        public Contact Contactsplus
-        {
-            get { return _contactsplus; }
-            set
-            {
-                _contactsplus.SecondName = value.SecondName;
-                _contactsplus.Name = value.Name;
-                _contactsplus.Phone = value.Phone;
-                _contactsplus.Birth = value.Birth;
-                _contactsplus.Email = value.Email;
-                _contactsplus.IDVk = value.IDVk;
-            }
-        }
-
+   
+        private PhoneNumber _phone = new PhoneNumber();
 
         public Form2()
         {
             InitializeComponent();
+            BirthTimePicker1.MaxDate = DateTime.Now;
         }
 
         
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            _phone.Number = System.Int64.Parse(PhoneTextBox1.Text);
+            _contactsplus.SecondName = SecondNameTextBox1.Text;
+            _contactsplus.Name = NameTextBox1.Text;
+            _contactsplus.Birth = BirthTimePicker1.Value;
+            _contactsplus.Phone = _phone;
+            _contactsplus.Email = EmailtextBox1.Text;
+            _contactsplus.IDVk = VKtextBox1.Text;
+            _data.TxtBox = _contactsplus.SecondName;
+            _data._contactsplus = _contactsplus;
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            Form1 main = this.Owner as Form1;
+            var form1 = new Form1();
+            if (main != null)
+            {
+                Data = null;
+            }
             this.Close();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            if (_contactsplus.SecondName != null)
+            if (Data._contactsplus != null)
             {
-                SecondNameTextBox1.Text = _contactsplus.SecondName;
-                NameTextBox1.Text = _contactsplus.Name;
-                 BirthTimePicker1.Value = _contactsplus.Birth; 
-                PhoneTextBox1.Text = _contactsplus._phone.Number.ToString();
-                EmailtextBox1.Text = _contactsplus.Email;
-                VKtextBox1.Text = _contactsplus.IDVk;
+                SecondNameTextBox1.Text = Data._contactsplus.SecondName;
+                NameTextBox1.Text = Data._contactsplus.Name;
+                EmailtextBox1.Text = Data._contactsplus.Email;
+                VKtextBox1.Text = Data._contactsplus.IDVk;
+                BirthTimePicker1.Value = Data._contactsplus.Birth;
+                PhoneTextBox1.Text = Convert.ToString(Data._contactsplus.Phone.Number);
+            }
+            
+        }
+        public class DataInMainForm
+        {
+            public string TxtBox;
+            public Contact _contactsplus;
+        }
+        private DataInMainForm _data = new DataInMainForm();
+        public DataInMainForm Data
+        {
+            get
+            {
+                return _data;
+            }
+            set
+            {
+                _data = value;
             }
         }
+     
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -68,142 +89,37 @@ namespace ContactsAppUI
 
         private void SecondNameTextBox1_TextChanged(object sender, EventArgs e)
         {
-            int i = 0;
-            try
-            {
-                _contactsplus.SecondName = SecondNameTextBox1.Text;
-            }
-            catch (Exception )
-            {
-                //MessageBox.Show(ex.Message, "Неверный ввод данных");
-                SecondNameTextBox1.BackColor = Color.LightSalmon;
-                i++;
-            }
-            if (i != 0)
-            {
-                SecondNameTextBox1.BackColor = Color.LightSalmon;
-            }
-            else
-            {
-                SecondNameTextBox1.BackColor = Color.White;
-            }
+           
         }
 
         private void NameTextBox1_TextChanged(object sender, EventArgs e)
         {
-            int i = 0;
-            try
-            {
-                _contactsplus.Name = NameTextBox1.Text;
-            }
-            catch (Exception )
-            {
-                //MessageBox.Show(ex.Message, "Неверный ввод данных");
-                NameTextBox1.BackColor = Color.LightSalmon;
-                i++;
-            }
-            if (i != 0)
-            {
-                NameTextBox1.BackColor = Color.LightSalmon;
-            }
-            else
-            {
-                NameTextBox1.BackColor = Color.White;
-            }
+            
         }
 
         private void BirthTimePicker1_ValueChanged(object sender, EventArgs e)
        {
-            int i = 0;
-            try
-           {
-                _contactsplus._birth = BirthTimePicker1.Value; 
-            }
-            catch (Exception)
-            {
-         //       //MessageBox.Show(ex.Message, "Неверный ввод данных");
-                BirthTimePicker1.BackColor = Color.LightSalmon;
-                i++;
-            }
-            if (i != 0)
-            {
-                BirthTimePicker1.BackColor = Color.LightSalmon;
-            }
-            else
-            {
-               BirthTimePicker1.BackColor = Color.White;
-            }
+          
         }
 
         private void PhoneTextBox1_TextChanged(object sender, EventArgs e)
         {
-            int i = 0;
-            int phone;
-            try
-            {
-                int.TryParse(PhoneTextBox1.Text, out phone);
-                _contactsplus._phone.Number = phone; 
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show(ex.Message, "Неверный ввод данных");
-                PhoneTextBox1.BackColor = Color.LightSalmon;
-                i++;
-            }
-            if (i != 0)
-            {
-                PhoneTextBox1.BackColor = Color.LightSalmon;
-            }
-            else
-            {
-                PhoneTextBox1.BackColor = Color.White;
-            }
+            
         }
 
         private void EmailtextBox1_TextChanged(object sender, EventArgs e)
         {
-            int i = 0;
-            try
-            {
-                _contactsplus.Email = EmailtextBox1.Text;
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show(ex.Message, "Неверный ввод данных");
-                EmailtextBox1.BackColor = Color.LightSalmon;
-                i++;
-            }
-            if (i != 0)
-            {
-                EmailtextBox1.BackColor = Color.LightSalmon;
-            }
-            else
-            {
-                EmailtextBox1.BackColor = Color.White;
-            }
+           
         }
 
         private void VKtextBox1_TextChanged(object sender, EventArgs e)
         {
-            int i = 0;
-            try
-            {
-                _contactsplus.IDVk = VKtextBox1.Text;
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show(ex.Message, "Неверный ввод данных");
-                VKtextBox1.BackColor = Color.LightSalmon;
-                i++;
-            }
-            if (i != 0)
-            {
-                VKtextBox1.BackColor = Color.LightSalmon;
-            }
-            else
-            {
-                VKtextBox1.BackColor = Color.White;
-            }
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

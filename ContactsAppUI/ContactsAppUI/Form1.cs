@@ -13,159 +13,97 @@ namespace ContactsAppUI
 {
     public partial class Form1 : Form
     {
-       private Project _project;
+       
         public Form1()
         {
             InitializeComponent();
-            _project = ProjectManager.Deserialization(ProjectManager._path);
-            if (_project != null)
-            {
-                int i = 0;
-                while (i != _project._contactslistone.Count)
-                {
-                    ContactlistBox1.Items.Add(_project._contactslistone[i].SecondName);
-                    i++;
-                }
-
-
-            }
-            else
-            {
-                _project = new Project();
-            }
-           // Project birth = Project.Birthday(_project, DateTime.Today);
-           // for (int i = 0; i != birth._contactslistone.Count; i++)
-          //  {
-           //     BirthdaySurnameLabel.Text = BirthdaySurnameLabel.Text + birth.Contacts[i].SecondName + ". ";
-          //  }
+            BirthTimePicker1.MaxDate = DateTime.Now;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
+        public List<Contact> _contactslistone = new List<Contact>();
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
-        private void Add()
-        {
-            var newForm = new Form2();
-            var i = newForm.ShowDialog();
-            if (i == DialogResult.OK)
-            {
-                var Contact = newForm.Contactsplus;
-                _project._contactslistone.Add(Contact);
-                _project = Project.Sort(_project);
-                ContactlistBox1.Items.Add(Contact.SecondName);
-                for (int k = 0; k != _project._contactslistone.Count - 1; k++)
-                {
-                    ContactlistBox1.Items.RemoveAt(0);
-                }
-                for (int k = 0; k != _project._contactslistone.Count; k++)
-                {
-                    ContactlistBox1.Items.Add(_project._contactslistone[k].SecondName);
-                }
-                ProjectManager.Serialization(_project, ProjectManager._path);
-            }
-          
-        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-             Add();
-          
-        }
+            var form2 = new Form2();
+            form2.Owner = this;
+            form2.ShowDialog();
+            var UpdatedDate = form2.Data;
+            if (UpdatedDate != null)
+            {
+                _contactslistone.Add(UpdatedDate._contactsplus);
+                ContactlistBox1.Items.Add(UpdatedDate.TxtBox);
+            }
 
-        private void Edit()
-        {
-            var selectedIndex = ContactlistBox1.SelectedIndex;
-            if (selectedIndex == -1)
-            {
-                MessageBox.Show("Выберите запись для редактирования", "Отсутствие записи");
-            }
-            else
-            {
-                var selectedContact = _project._contactslistone[selectedIndex];
-                var newForm = new Form2();
-                newForm.Contactsplus = selectedContact;
-                var i = newForm.ShowDialog();
-                if (i == DialogResult.OK)
-                {
-                    var updatedContact = newForm.Contactsplus;
-                    _project._contactslistone.Insert(selectedIndex, updatedContact);
-                    ContactlistBox1.Items.Insert(selectedIndex, updatedContact.SecondName);
-                    _project._contactslistone.RemoveAt(selectedIndex + 1);
-                    ContactlistBox1.Items.RemoveAt(selectedIndex + 1);
-                    _project = Project.Sort(_project);
-                    for (int k = 0; k != _project._contactslistone.Count; k++)
-                    {
-                        ContactlistBox1.Items.RemoveAt(0);
-                    }
-                    for (int k = 0; k != _project._contactslistone.Count; k++)
-                    {
-                        ContactlistBox1.Items.Add(_project._contactslistone[k].SecondName);
-                    }
-                    ProjectManager.Serialization(_project, ProjectManager._path);
-                }
-            }
         }
-        /// <summary>
-        /// Переключение между контактами из списка и вывод выбранного контакта в левой панели
-        /// </summary>
         private void ContactlistBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedIndex = ContactlistBox1.SelectedIndex;
-            if (selectedIndex >= 0)
+            if (ContactlistBox1.SelectedIndex >= 0)
             {
-
-
-                Contact contact = _project._contactslistone[selectedIndex];
-                SecondNameTextBox1.Text = contact.SecondName;
-                NameTextBox1.Text = contact.Name;
-                BirthTimePicker1.Value = contact.Birth;
-                PhoneTextBox1.Text = contact._phone.Number.ToString();
-                EmailTextBox1.Text = contact.Email;
-                VKTextBox1.Text = contact.IDVk;
-            }
-
-            else
-            {
-                SecondNameTextBox1.Text = "";
-                NameTextBox1.Text = "";
-                BirthTimePicker1.Value = DateTime.Today;
-                PhoneTextBox1.Text = "";
-                EmailTextBox1.Text = "";
-                VKTextBox1.Text = "";
+                Contact _contactsplus;
+                _contactsplus = _contactslistone[ContactlistBox1.SelectedIndex];
+                NameTextBox1.Text = _contactsplus.Name;
+                SecondNameTextBox1.Text = _contactsplus.SecondName;
+                EmailTextBox1.Text = _contactsplus.Email;
+                VKTextBox1.Text = _contactsplus.IDVk;
+                BirthTimePicker1.Value = _contactsplus.Birth;
+                PhoneTextBox1.Text = Convert.ToString(_contactsplus.Phone.Number);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Edit();
-        }
-        private void Remove()
-        {
-            var selectedIndex = ContactlistBox1.SelectedIndex;
-            if (selectedIndex == -1)
+            Form2 form2 = new Form2();
+            if (ContactlistBox1.SelectedIndex >= 0)
             {
-                MessageBox.Show("Выберите запись для удаления", "Отсутствие записи");
-            }
-            else
-            {
-                var i = MessageBox.Show("Удалить эту запись?", "Подтверждение", MessageBoxButtons.OKCancel);
-                if (i == DialogResult.OK)
-                {
-                    _project._contactslistone.RemoveAt(selectedIndex);
-                    ContactlistBox1.Items.RemoveAt(selectedIndex);
-                    ProjectManager.Serialization(_project, ProjectManager._path);
-                }
-
+                form2.Data._contactsplus = _contactslistone[ContactlistBox1.SelectedIndex];
+                form2.Data.TxtBox = _contactslistone[ContactlistBox1.SelectedIndex].SecondName;
+                form2.ShowDialog();
+                var UpdatedDate = form2.Data;
+                _contactslistone.RemoveAt(ContactlistBox1.SelectedIndex);
+                ContactlistBox1.Items.RemoveAt(ContactlistBox1.SelectedIndex);
+                _contactslistone.Add(UpdatedDate._contactsplus);
+                ContactlistBox1.Items.Add(UpdatedDate.TxtBox);
+                NameTextBox1.Text = UpdatedDate._contactsplus.Name;
+                SecondNameTextBox1.Text = UpdatedDate._contactsplus.SecondName;
+                EmailTextBox1.Text = UpdatedDate._contactsplus.Email;
+                VKTextBox1.Text = UpdatedDate._contactsplus.IDVk;
+                BirthTimePicker1.Value = UpdatedDate._contactsplus.Birth;
+                PhoneTextBox1.Text = Convert.ToString(UpdatedDate._contactsplus.Phone.Number);
             }
         }
+      
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Remove();
+            DialogResult result = MessageBox.Show("Do you really want to delete the contact?\n" + _contactslistone[ContactlistBox1.SelectedIndex].SecondName + " " + _contactslistone[ContactlistBox1.SelectedIndex].Name, "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                _contactslistone.RemoveAt(ContactlistBox1.SelectedIndex);
+                ContactlistBox1.Items.RemoveAt(ContactlistBox1.SelectedIndex);
+                NameTextBox1.Clear();
+                SecondNameTextBox1.Clear();
+                EmailTextBox1.Clear();
+                PhoneTextBox1.Clear();
+                VKTextBox1.Clear();
+                BirthTimePicker1.Value = BirthTimePicker1.MaxDate;
+            }
+        }
+
+        private void NameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VKTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

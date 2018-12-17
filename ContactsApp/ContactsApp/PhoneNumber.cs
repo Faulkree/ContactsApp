@@ -11,42 +11,32 @@ namespace ContactsApp
     /// </summary>
     public class PhoneNumber
     {
+        private long _number;
         /// <summary>
         /// номер телефона содержит 11 цифр и начинается с 7
         /// </summary>
-        public int Number
+        public long Number
         {
             get { return _number; }
 
             set
             {
 
-                int count = (value == 0) ? 1 : 0;
-                while (value != 0)
+                if (value < 10000000000 || value > 99999999999)
                 {
-                    count++;
-                    value /= 10;
+                    throw new ArgumentException("Номер должен состоять из 11 цифр.");
                 }
-                
-                if (count != 11)
+                if (value < 70000000000 || value > 79999999999)
                 {
-                    throw new ArgumentException(@"Must be exactly 11 numbers");
+                    throw new ArgumentException("Номер должен начинаться с цифры 7.");
                 }
-
-                int firstDigit = (int)(value / Math.Pow(10, (int)Math.Log10(value)));
-
-                if (firstDigit != 7)
-                {
-                    throw new ArgumentException(@"Number should start from 7");
-                }
-
-                _number = value;
+                else { _number = value; }
 
             }
 
         }
 
-        private int _number;
+        
 
 
     }
