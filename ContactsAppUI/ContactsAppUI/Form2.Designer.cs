@@ -102,6 +102,8 @@
             // 
             // BirthTimePicker1
             // 
+            this.BirthTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BirthTimePicker1.Location = new System.Drawing.Point(87, 112);
             this.BirthTimePicker1.Name = "BirthTimePicker1";
             this.BirthTimePicker1.Size = new System.Drawing.Size(138, 20);
@@ -130,6 +132,8 @@
             // 
             // SecondNameTextBox1
             // 
+            this.SecondNameTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SecondNameTextBox1.Location = new System.Drawing.Point(88, 42);
             this.SecondNameTextBox1.Name = "SecondNameTextBox1";
             this.SecondNameTextBox1.Size = new System.Drawing.Size(227, 20);
@@ -138,6 +142,8 @@
             // 
             // NameTextBox1
             // 
+            this.NameTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox1.Location = new System.Drawing.Point(87, 74);
             this.NameTextBox1.Name = "NameTextBox1";
             this.NameTextBox1.Size = new System.Drawing.Size(228, 20);
@@ -146,6 +152,8 @@
             // 
             // PhoneTextBox1
             // 
+            this.PhoneTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneTextBox1.Location = new System.Drawing.Point(87, 147);
             this.PhoneTextBox1.Name = "PhoneTextBox1";
             this.PhoneTextBox1.Size = new System.Drawing.Size(228, 20);
@@ -154,6 +162,8 @@
             // 
             // EmailtextBox1
             // 
+            this.EmailtextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailtextBox1.Location = new System.Drawing.Point(88, 181);
             this.EmailtextBox1.Name = "EmailtextBox1";
             this.EmailtextBox1.Size = new System.Drawing.Size(227, 20);
@@ -162,6 +172,8 @@
             // 
             // VKtextBox1
             // 
+            this.VKtextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.VKtextBox1.Location = new System.Drawing.Point(88, 222);
             this.VKtextBox1.Name = "VKtextBox1";
             this.VKtextBox1.Size = new System.Drawing.Size(227, 20);

@@ -21,7 +21,7 @@ namespace ContactsAppUI
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+         
         }
         public List<Contact> _contactslistone = new List<Contact>();
         private void label6_Click(object sender, EventArgs e)
@@ -36,11 +36,13 @@ namespace ContactsAppUI
             form2.ShowDialog();
             var UpdatedDate = form2.Data;
             if (UpdatedDate != null)
+          
             {
                 _contactslistone.Add(UpdatedDate._contactsplus);
                 ContactlistBox1.Items.Add(UpdatedDate.TxtBox);
             }
-
+           
+          
         }
         private void ContactlistBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -82,8 +84,8 @@ namespace ContactsAppUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to delete the contact?\n" + _contactslistone[ContactlistBox1.SelectedIndex].SecondName + " " + _contactslistone[ContactlistBox1.SelectedIndex].Name, "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (result == DialogResult.OK)
+            var i = MessageBox.Show("Удалить этот контакт?", "Подтверждение", MessageBoxButtons.OKCancel);
+            if (i == DialogResult.OK)
             {
                 _contactslistone.RemoveAt(ContactlistBox1.SelectedIndex);
                 ContactlistBox1.Items.RemoveAt(ContactlistBox1.SelectedIndex);
@@ -102,6 +104,84 @@ namespace ContactsAppUI
         }
 
         private void VKTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var form2 = new Form2();
+            form2.Owner = this;
+            form2.ShowDialog();
+            var UpdatedDate = form2.Data;
+            if (UpdatedDate != null)
+            {
+                _contactslistone.Add(UpdatedDate._contactsplus);
+                ContactlistBox1.Items.Add(UpdatedDate.TxtBox);
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+       
+            if (ContactlistBox1.SelectedIndex >= 0)
+            {
+                form2.Data._contactsplus = _contactslistone[ContactlistBox1.SelectedIndex];
+                form2.Data.TxtBox = _contactslistone[ContactlistBox1.SelectedIndex].SecondName;
+                form2.ShowDialog();
+                var UpdatedDate = form2.Data;
+                _contactslistone.RemoveAt(ContactlistBox1.SelectedIndex);
+                ContactlistBox1.Items.RemoveAt(ContactlistBox1.SelectedIndex);
+                _contactslistone.Add(UpdatedDate._contactsplus);
+                ContactlistBox1.Items.Add(UpdatedDate.TxtBox);
+                NameTextBox1.Text = UpdatedDate._contactsplus.Name;
+                SecondNameTextBox1.Text = UpdatedDate._contactsplus.SecondName;
+                EmailTextBox1.Text = UpdatedDate._contactsplus.Email;
+                VKTextBox1.Text = UpdatedDate._contactsplus.IDVk;
+                BirthTimePicker1.Value = UpdatedDate._contactsplus.Birth;
+                PhoneTextBox1.Text = Convert.ToString(UpdatedDate._contactsplus.Phone.Number);
+            }
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var i = MessageBox.Show("Удалить этот контакт?", "Подтверждение", MessageBoxButtons.OKCancel);
+            if (i == DialogResult.OK)
+            {
+                _contactslistone.RemoveAt(ContactlistBox1.SelectedIndex);
+                ContactlistBox1.Items.RemoveAt(ContactlistBox1.SelectedIndex);
+                NameTextBox1.Clear();
+                SecondNameTextBox1.Clear();
+                EmailTextBox1.Clear();
+                PhoneTextBox1.Clear();
+                VKTextBox1.Clear();
+                BirthTimePicker1.Value = BirthTimePicker1.MaxDate;
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form3 = new Form3();
+            form3.ShowDialog();
+        }
+
+        private void SecondNameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
 
         }

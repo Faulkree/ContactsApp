@@ -25,14 +25,22 @@ namespace ContactsApp
         private string _eMail;
 
         private string _idVk;
-       
+
+        private string UppercaseFirst(string s)
+        {
+            char[] a = s.ToCharArray();
+            a[0] = char.ToUpper(a[0]);
+            return new string(a);
+        }
 
         /// <summary>
         /// Имя
         /// </summary>
         public string Name
         {
-            get { return _name; }
+            get {
+                return(UppercaseFirst( _name));
+            }
             set
             {
                 if ((value.Length) > 50)
@@ -64,7 +72,9 @@ namespace ContactsApp
         /// </summary>
         public string SecondName
         {
-            get { return _secondName; }
+            get {
+                return (UppercaseFirst(_secondName));
+            }
             set
             {
                 if ((value.Length) > 50)
@@ -116,11 +126,15 @@ namespace ContactsApp
             get { return _birth; }
             set
             {
-                if (value > DateTime.Now && value < dateMin)
+                if (value > DateTime.Now)
                 {
-                    throw new ArgumentException("Дата рождения должна быть меньше текущей даты и более чем 1900 год");
+                    throw new ArgumentException("Дата рождения не может быть больше текушей даты");
                 }
-                else _birth = value;
+                if (value.Year < 1900)
+                {
+                    throw new ArgumentException("Дата рождения не может быть быть меньше 1900 года");
+                }
+                _birth = value;
             }
 
         }

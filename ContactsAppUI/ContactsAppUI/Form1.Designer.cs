@@ -46,6 +46,17 @@
             this.VKTextBox1 = new System.Windows.Forms.TextBox();
             this.BirthTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -153,13 +164,20 @@
             // 
             // SecondNameTextBox1
             // 
+            this.SecondNameTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SecondNameTextBox1.Enabled = false;
             this.SecondNameTextBox1.Location = new System.Drawing.Point(422, 81);
             this.SecondNameTextBox1.Name = "SecondNameTextBox1";
             this.SecondNameTextBox1.Size = new System.Drawing.Size(248, 20);
             this.SecondNameTextBox1.TabIndex = 22;
+            this.SecondNameTextBox1.TextChanged += new System.EventHandler(this.SecondNameTextBox1_TextChanged);
             // 
             // NameTextBox1
             // 
+            this.NameTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameTextBox1.Enabled = false;
             this.NameTextBox1.Location = new System.Drawing.Point(422, 115);
             this.NameTextBox1.Name = "NameTextBox1";
             this.NameTextBox1.Size = new System.Drawing.Size(248, 20);
@@ -168,6 +186,9 @@
             // 
             // PhoneTextBox1
             // 
+            this.PhoneTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PhoneTextBox1.Enabled = false;
             this.PhoneTextBox1.Location = new System.Drawing.Point(422, 212);
             this.PhoneTextBox1.Name = "PhoneTextBox1";
             this.PhoneTextBox1.Size = new System.Drawing.Size(248, 20);
@@ -175,6 +196,9 @@
             // 
             // EmailTextBox1
             // 
+            this.EmailTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailTextBox1.Enabled = false;
             this.EmailTextBox1.Location = new System.Drawing.Point(422, 252);
             this.EmailTextBox1.Name = "EmailTextBox1";
             this.EmailTextBox1.Size = new System.Drawing.Size(248, 20);
@@ -182,6 +206,9 @@
             // 
             // VKTextBox1
             // 
+            this.VKTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VKTextBox1.Enabled = false;
             this.VKTextBox1.Location = new System.Drawing.Point(422, 305);
             this.VKTextBox1.Name = "VKTextBox1";
             this.VKTextBox1.Size = new System.Drawing.Size(248, 20);
@@ -190,6 +217,9 @@
             // 
             // BirthTimePicker1
             // 
+            this.BirthTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BirthTimePicker1.Enabled = false;
             this.BirthTimePicker1.Location = new System.Drawing.Point(422, 168);
             this.BirthTimePicker1.Name = "BirthTimePicker1";
             this.BirthTimePicker1.Size = new System.Drawing.Size(248, 20);
@@ -199,14 +229,97 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(48, 54);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 28;
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(225, 84);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(23, 417);
+            this.vScrollBar1.TabIndex = 29;
+            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.findToolStripMenuItem,
+            this.editToolStripMenuItem1,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(982, 24);
+            this.menuStrip1.TabIndex = 30;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // findToolStripMenuItem
+            // 
+            this.findToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem});
+            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.findToolStripMenuItem.Text = "File";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Text = "Exit";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem1
+            // 
+            this.editToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem1,
+            this.editToolStripMenuItem,
+            this.removeToolStripMenuItem});
+            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem1.Text = "Edit";
+            // 
+            // addToolStripMenuItem1
+            // 
+            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem1.Text = "Add";
+            this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 574);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BirthTimePicker1);
             this.Controls.Add(this.VKTextBox1);
@@ -225,9 +338,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "ContactsApp";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,6 +369,16 @@
         private System.Windows.Forms.TextBox VKTextBox1;
         private System.Windows.Forms.DateTimePicker BirthTimePicker1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

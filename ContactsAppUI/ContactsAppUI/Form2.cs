@@ -21,22 +21,42 @@ namespace ContactsAppUI
         {
             InitializeComponent();
             BirthTimePicker1.MaxDate = DateTime.Now;
+           
         }
 
         
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _phone.Number = System.Int64.Parse(PhoneTextBox1.Text);
-            _contactsplus.SecondName = SecondNameTextBox1.Text;
-            _contactsplus.Name = NameTextBox1.Text;
-            _contactsplus.Birth = BirthTimePicker1.Value;
-            _contactsplus.Phone = _phone;
-            _contactsplus.Email = EmailtextBox1.Text;
-            _contactsplus.IDVk = VKtextBox1.Text;
-            _data.TxtBox = _contactsplus.SecondName;
-            _data._contactsplus = _contactsplus;
-            this.Close();
+            bool flag;
+            try
+            {
+               
+               flag = true;
+                _phone.Number = System.Int64.Parse(PhoneTextBox1.Text);
+                _contactsplus.SecondName = SecondNameTextBox1.Text;
+                _contactsplus.Name = NameTextBox1.Text;
+                _contactsplus.Birth = BirthTimePicker1.Value;
+                _contactsplus.Phone = _phone;
+                _contactsplus.Email = EmailtextBox1.Text;
+                _contactsplus.IDVk = VKtextBox1.Text;
+                _data.TxtBox = _contactsplus.SecondName;
+                _data._contactsplus = _contactsplus;
+               
+
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Неверный ввод данных");
+                flag = false;
+            }
+
+                if (flag == true)
+            {
+                this.Close();
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -63,13 +83,13 @@ namespace ContactsAppUI
             }
             
         }
-        public class DataInMainForm
+        public class DataMainForm
         {
             public string TxtBox;
             public Contact _contactsplus;
         }
-        private DataInMainForm _data = new DataInMainForm();
-        public DataInMainForm Data
+        private DataMainForm _data = new DataMainForm();
+        public DataMainForm Data
         {
             get
             {
@@ -89,32 +109,81 @@ namespace ContactsAppUI
 
         private void SecondNameTextBox1_TextChanged(object sender, EventArgs e)
         {
-           
+            try
+            {
+                _contactsplus.SecondName = SecondNameTextBox1.Text;
+                SecondNameTextBox1.BackColor = Color.White;
+            }
+            catch(Exception)
+            {
+                SecondNameTextBox1.BackColor = Color.LightSalmon;
+            }
         }
 
         private void NameTextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+            try
+            {
+                _contactsplus.Name = NameTextBox1.Text;
+                NameTextBox1.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                NameTextBox1.BackColor = Color.LightSalmon;
+            }
         }
 
         private void BirthTimePicker1_ValueChanged(object sender, EventArgs e)
        {
-          
+           
+            
+                try
+                {
+                    _contactsplus.Birth = BirthTimePicker1.Value;
+                    BirthTimePicker1.BackColor = Color.White;
+                }
+                catch (Exception )
+                {
+                    BirthTimePicker1.BackColor = Color.LightSalmon;
+                  
+                }
+            
+            
+             
+
         }
 
         private void PhoneTextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void EmailtextBox1_TextChanged(object sender, EventArgs e)
         {
-           
+            try
+            {
+                _contactsplus.Email = EmailtextBox1.Text;
+                EmailtextBox1.BackColor = Color.White;
+
+            }
+            catch (Exception)
+            {
+                EmailtextBox1.BackColor = Color.LightSalmon;
+            }
         }
 
         private void VKtextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+            try
+            {
+              
+                _contactsplus.IDVk = VKtextBox1.Text;
+                VKtextBox1.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                VKtextBox1.BackColor = Color.LightSalmon;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
