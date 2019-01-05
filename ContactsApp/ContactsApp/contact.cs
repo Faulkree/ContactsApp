@@ -18,7 +18,7 @@ namespace ContactsApp
 
         private string _secondName;
 
-        private PhoneNumber _phone;
+        private PhoneNumber _phone = new PhoneNumber();
 
         private DateTime _birth;
 
@@ -151,7 +151,7 @@ namespace ContactsApp
             set
             {
 
-                if (value.Length > 50)
+                if (value.Length > 15)
                 {
                     throw new ArgumentException(@"String is too long");
                 }
