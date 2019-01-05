@@ -13,17 +13,21 @@ namespace ContactsAppUI
 {
     public partial class Form1 : Form
     {
-       
+        private Project _project;
         public Form1()
         {
             InitializeComponent();
             BirthTimePicker1.MaxDate = DateTime.Now;
+            _project = ProjectManager.LoadFromFile(ProjectManager._path);
+           
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
          
         }
         public List<Contact> _contactslistone = new List<Contact>();
+    
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -31,18 +35,22 @@ namespace ContactsAppUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+
             var form2 = new Form2();
             form2.Owner = this;
             form2.ShowDialog();
             var UpdatedDate = form2.Data;
+
             if (UpdatedDate != null)
-          
+
             {
                 _contactslistone.Add(UpdatedDate._contactsplus);
                 ContactlistBox1.Items.Add(UpdatedDate.TxtBox);
+            
             }
-           
-          
+            
+
         }
         private void ContactlistBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -56,7 +64,11 @@ namespace ContactsAppUI
                 VKTextBox1.Text = _contactsplus.IDVk;
                 BirthTimePicker1.Value = _contactsplus.Birth;
                 PhoneTextBox1.Text = Convert.ToString(_contactsplus.Phone.Number);
+            
+
             }
+           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,6 +91,7 @@ namespace ContactsAppUI
                 BirthTimePicker1.Value = UpdatedDate._contactsplus.Birth;
                 PhoneTextBox1.Text = Convert.ToString(UpdatedDate._contactsplus.Phone.Number);
             }
+       
         }
       
 
@@ -96,6 +109,7 @@ namespace ContactsAppUI
                 VKTextBox1.Clear();
                 BirthTimePicker1.Value = BirthTimePicker1.MaxDate;
             }
+         
         }
 
         private void NameTextBox1_TextChanged(object sender, EventArgs e)
@@ -185,6 +199,23 @@ namespace ContactsAppUI
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
 

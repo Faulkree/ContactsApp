@@ -56,6 +56,7 @@ namespace ContactsAppUI
             {
                 this.Close();
                 DialogResult = DialogResult.OK;
+               
             }
         }
 

@@ -35,7 +35,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ContactlistBox1 = new System.Windows.Forms.ListBox();
@@ -56,17 +55,19 @@
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(341, 84);
+            this.label1.Location = new System.Drawing.Point(327, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "SecondName:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -85,6 +86,7 @@
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Birthday:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -123,16 +125,6 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Find";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 522);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(77, 522);
@@ -169,7 +161,7 @@
             this.SecondNameTextBox1.Enabled = false;
             this.SecondNameTextBox1.Location = new System.Drawing.Point(422, 81);
             this.SecondNameTextBox1.Name = "SecondNameTextBox1";
-            this.SecondNameTextBox1.Size = new System.Drawing.Size(248, 20);
+            this.SecondNameTextBox1.Size = new System.Drawing.Size(206, 20);
             this.SecondNameTextBox1.TabIndex = 22;
             this.SecondNameTextBox1.TextChanged += new System.EventHandler(this.SecondNameTextBox1_TextChanged);
             // 
@@ -180,7 +172,7 @@
             this.NameTextBox1.Enabled = false;
             this.NameTextBox1.Location = new System.Drawing.Point(422, 115);
             this.NameTextBox1.Name = "NameTextBox1";
-            this.NameTextBox1.Size = new System.Drawing.Size(248, 20);
+            this.NameTextBox1.Size = new System.Drawing.Size(206, 20);
             this.NameTextBox1.TabIndex = 23;
             this.NameTextBox1.TextChanged += new System.EventHandler(this.NameTextBox1_TextChanged);
             // 
@@ -191,7 +183,7 @@
             this.PhoneTextBox1.Enabled = false;
             this.PhoneTextBox1.Location = new System.Drawing.Point(422, 212);
             this.PhoneTextBox1.Name = "PhoneTextBox1";
-            this.PhoneTextBox1.Size = new System.Drawing.Size(248, 20);
+            this.PhoneTextBox1.Size = new System.Drawing.Size(206, 20);
             this.PhoneTextBox1.TabIndex = 24;
             // 
             // EmailTextBox1
@@ -201,7 +193,7 @@
             this.EmailTextBox1.Enabled = false;
             this.EmailTextBox1.Location = new System.Drawing.Point(422, 252);
             this.EmailTextBox1.Name = "EmailTextBox1";
-            this.EmailTextBox1.Size = new System.Drawing.Size(248, 20);
+            this.EmailTextBox1.Size = new System.Drawing.Size(206, 20);
             this.EmailTextBox1.TabIndex = 25;
             // 
             // VKTextBox1
@@ -211,7 +203,7 @@
             this.VKTextBox1.Enabled = false;
             this.VKTextBox1.Location = new System.Drawing.Point(422, 305);
             this.VKTextBox1.Name = "VKTextBox1";
-            this.VKTextBox1.Size = new System.Drawing.Size(248, 20);
+            this.VKTextBox1.Size = new System.Drawing.Size(206, 20);
             this.VKTextBox1.TabIndex = 26;
             this.VKTextBox1.TextChanged += new System.EventHandler(this.VKTextBox1_TextChanged);
             // 
@@ -222,7 +214,7 @@
             this.BirthTimePicker1.Enabled = false;
             this.BirthTimePicker1.Location = new System.Drawing.Point(422, 168);
             this.BirthTimePicker1.Name = "BirthTimePicker1";
-            this.BirthTimePicker1.Size = new System.Drawing.Size(248, 20);
+            this.BirthTimePicker1.Size = new System.Drawing.Size(206, 20);
             this.BirthTimePicker1.TabIndex = 27;
             // 
             // textBox1
@@ -231,12 +223,13 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 28;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(225, 84);
+            this.vScrollBar1.Location = new System.Drawing.Point(231, 81);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(23, 417);
+            this.vScrollBar1.Size = new System.Drawing.Size(17, 417);
             this.vScrollBar1.TabIndex = 29;
             this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
             // 
@@ -248,7 +241,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(982, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(940, 24);
             this.menuStrip1.TabIndex = 30;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -264,7 +257,7 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.addToolStripMenuItem.Text = "Exit";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
@@ -281,21 +274,21 @@
             // addToolStripMenuItem1
             // 
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.addToolStripMenuItem1.Text = "Add";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -310,15 +303,28 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(17, 522);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 24);
+            this.button1.TabIndex = 17;
+            this.button1.Text = " Add";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 574);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(940, 558);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BirthTimePicker1);

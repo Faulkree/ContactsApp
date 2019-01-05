@@ -15,6 +15,7 @@ namespace ContactsApp
         /// Список контактов
         /// </summary>
         public List<Contact> _contactslistone = new List<Contact>();
- 
     }
+      
+       
 }
