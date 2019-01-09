@@ -30,6 +30,7 @@ namespace ContactsApp.UnitTests
             TestName = "Присвоение неправильной фамиилии, с символом больше ascii кода Z и меньше ascii кода a")]
         [TestCase("ivanov", "Должно возникать исключение, если первый из присвоеных символов больше ascii кода a и меньше ascii кода z",
             TestName = "Присвоение неправильной фамиилии, с первым символом больше ascii кода a и меньше ascii кода z")]
+ 
         public void TestSecondNameSet_ArgumentException(string wrongSecondName, string message)
         {
             Assert.Throws<ArgumentException>(

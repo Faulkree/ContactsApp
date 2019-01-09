@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SecondName = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.Label();
-            this.Birth = new System.Windows.Forms.Label();
-            this.Phone = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.NameTextBox1 = new System.Windows.Forms.TextBox();
             this.PhoneTextBox1 = new System.Windows.Forms.TextBox();
             this.EmailtextBox1 = new System.Windows.Forms.TextBox();
@@ -42,63 +36,13 @@
             this.SecondNameTextBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // SecondName
-            // 
-            this.SecondName.AutoSize = true;
-            this.SecondName.Location = new System.Drawing.Point(12, 15);
-            this.SecondName.Name = "SecondName";
-            this.SecondName.Size = new System.Drawing.Size(72, 13);
-            this.SecondName.TabIndex = 0;
-            this.SecondName.Text = "SecondName";
-            this.SecondName.Click += new System.EventHandler(this.SecondName_Click);
-            // 
-            // Name
-            // 
-            this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(49, 46);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(35, 13);
-            this.Name.TabIndex = 1;
-            this.Name.Text = "Name";
-            // 
-            // Birth
-            // 
-            this.Birth.AutoSize = true;
-            this.Birth.Location = new System.Drawing.Point(56, 74);
-            this.Birth.Name = "Birth";
-            this.Birth.Size = new System.Drawing.Size(28, 13);
-            this.Birth.TabIndex = 2;
-            this.Birth.Text = "Birth";
-            // 
-            // Phone
-            // 
-            this.Phone.AutoSize = true;
-            this.Phone.Location = new System.Drawing.Point(49, 109);
-            this.Phone.Name = "Phone";
-            this.Phone.Size = new System.Drawing.Size(38, 13);
-            this.Phone.TabIndex = 3;
-            this.Phone.Text = "Phone";
-            this.Phone.Click += new System.EventHandler(this.Phone_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(49, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Email";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(49, 165);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "IDVK";
             // 
             // NameTextBox1
             // 
@@ -168,11 +112,72 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "SecondName";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(49, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Birth";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(49, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Phone";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(49, 135);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Email";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(49, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "IDvk";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 243);
+            this.ClientSize = new System.Drawing.Size(324, 236);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SecondNameTextBox1);
@@ -181,12 +186,6 @@
             this.Controls.Add(this.EmailtextBox1);
             this.Controls.Add(this.PhoneTextBox1);
             this.Controls.Add(this.NameTextBox1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.Phone);
-            this.Controls.Add(this.Birth);
-            this.Controls.Add(this.Name);
-            this.Controls.Add(this.SecondName);
             this.Name = "Form2";
             this.Text = "Add/Edit";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -196,13 +195,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label SecondName;
-        private System.Windows.Forms.Label Name;
-        private System.Windows.Forms.Label Birth;
-        private System.Windows.Forms.Label Phone;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox NameTextBox1;
         private System.Windows.Forms.TextBox PhoneTextBox1;
         private System.Windows.Forms.TextBox EmailtextBox1;
@@ -211,5 +203,11 @@
         private System.Windows.Forms.TextBox SecondNameTextBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

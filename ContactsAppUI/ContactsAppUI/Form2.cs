@@ -14,9 +14,22 @@ namespace ContactsAppUI
     public partial class Form2 : Form
     {
         private Contact _contactsplus = new Contact();
-
+        public Contact Contact
+        {
+            get { return _contactsplus; }
+            set
+            {
+                _contactsplus = new Contact();
+                _contactsplus.SecondName = value.SecondName;
+                _contactsplus.Name = value.Name;
+                _contactsplus.Phone = value.Phone;
+                _contactsplus.Birth = value.Birth;
+                _contactsplus.Email = value.Email;
+                _contactsplus.IDVk = value.IDVk;
+            }
+        }
         private PhoneNumber _phone = new PhoneNumber();
-
+       
         public Form2()
         {
             InitializeComponent();
@@ -37,15 +50,17 @@ namespace ContactsAppUI
                 BirthTimePicker1.Value = Data._contactsplus.Birth;
                 PhoneTextBox1.Text = Convert.ToString(Data._contactsplus.Phone.Number);
             }
+          
+
 
         }
-        public class DataMainForm
+        public class DataForm1
         {
             public string TxtBox;
             public Contact _contactsplus;
         }
-        private DataMainForm _data = new DataMainForm();
-        public DataMainForm Data
+        private DataForm1 _data = new DataForm1();
+        public DataForm1 Data
         {
             get
             {
@@ -63,9 +78,6 @@ namespace ContactsAppUI
 
         }
 
-      
-
-        
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -73,6 +85,7 @@ namespace ContactsAppUI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+           
             bool flag;
             try
             {
@@ -87,22 +100,23 @@ namespace ContactsAppUI
                 _contactsplus.IDVk = VKtextBox1.Text;
                 _data.TxtBox = _contactsplus.SecondName;
                 _data._contactsplus = _contactsplus;
-
-
+             
             }
+            
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Неверный ввод данных");
                 flag = false;
             }
-
-            if (flag == true)
+            
+                if (flag == true)
             {
                 this.Close();
                 DialogResult = DialogResult.OK;
 
             }
+         
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -125,7 +139,7 @@ namespace ContactsAppUI
             }
             catch (Exception)
             {
-                SecondNameTextBox1.BackColor = Color.LightSalmon;
+                SecondNameTextBox1.BackColor = Color.Red;
             }
 
         }
@@ -139,13 +153,23 @@ namespace ContactsAppUI
             }
             catch (Exception)
             {
-                NameTextBox1.BackColor = Color.LightSalmon;
+                NameTextBox1.BackColor = Color.Red;
             }
         }
 
         private void PhoneTextBox1_TextChanged_1(object sender, EventArgs e)
         {
-
+            long number;
+            try
+            {
+                long.TryParse(PhoneTextBox1.Text, out number);
+                _contactsplus.Phone.Number = number;
+                PhoneTextBox1.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                PhoneTextBox1.BackColor = Color.Red;
+            }
         }
 
         private void EmailtextBox1_TextChanged_1(object sender, EventArgs e)
@@ -158,7 +182,7 @@ namespace ContactsAppUI
             }
             catch (Exception)
             {
-                EmailtextBox1.BackColor = Color.LightSalmon;
+                EmailtextBox1.BackColor = Color.Red;
             }
         }
 
@@ -172,7 +196,7 @@ namespace ContactsAppUI
             }
             catch (Exception)
             {
-                VKtextBox1.BackColor = Color.LightSalmon;
+                VKtextBox1.BackColor = Color.Red;
             }
         }
 
@@ -182,10 +206,11 @@ namespace ContactsAppUI
             {
                 _contactsplus.Birth = BirthTimePicker1.Value;
                 BirthTimePicker1.BackColor = Color.White;
+                
             }
             catch (Exception)
             {
-                BirthTimePicker1.BackColor = Color.LightSalmon;
+                BirthTimePicker1.BackColor = Color.Red;
 
             }
         }
@@ -196,6 +221,11 @@ namespace ContactsAppUI
         }
 
         private void Phone_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }

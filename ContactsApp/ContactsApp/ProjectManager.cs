@@ -9,9 +9,7 @@ using System.IO;
 
 namespace ContactsApp
 {
-    /// <summary>
-    /// Сериализация
-    /// </summary>
+    
     public class ProjectManager
     {
         /// <summary>
@@ -19,42 +17,52 @@ namespace ContactsApp
         /// </summary>
         /// <param name="data">Путь</param>
         /// <param name="project">Сериализуемый класс</param>
-       // public static string _path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/ContactsApp.notes";
-       public static string _path = @"C:\Users\Василиса\Contact.txt";
-        public static void SaveToFile(Project data, string path)
+        public static string DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/ContactsApp.txt";
+       
+
+        public static void SaveToFile(Project contactList, string fileName)
         {
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter sw = new StreamWriter(path))
+            //Открываем поток для записи в файл с указанием пути
+            using (StreamWriter sw = new StreamWriter(fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, data);
+                //Вызываем сериализацию и передаем объект, который хотим сериализовать
+                serializer.Serialize(writer, (Project)contactList);
             }
         }
 
         /// <summary>
-        /// Десериализация
+        /// Получение список заметок из файла.
         /// </summary>
-        /// <param name="path">путь к десериализуемому файлу</param>
-        ///  /// <param name="project">Объект десириализации</param>
-        /// <returns>десериалиазуемый класс</returns>
-        public static Project LoadFromFile(string path)
+        /// <param name="filename">Имя файла.</param>
+        /// <returns></returns>
+        public static Project LoadFromFile(string fileName)
         {
-           Project project = null;
+            Project contact = new Project();
+            //Создаём экземпляр сериализатора.
             JsonSerializer serializer = new JsonSerializer();
-            if (System.IO.File.Exists(_path) == false)
-         
-                using (StreamWriter sw = new StreamWriter(path))
-            
-            using (StreamReader sr = new StreamReader(path))
+            //Открываем поток для чтения из файла с указанием пути.
+            using (StreamReader sr = new StreamReader(fileName))
             using (JsonReader reader = new JsonTextReader(sr))
             {
-                project = (Project)serializer.Deserialize<Project>(reader);
+                //Вызываем десериализацию и явно преобразуем результат в целевой тип данных.
+                var contactList = serializer.Deserialize<Project>(reader);
+                contact = contactList;
             }
-
-            return project;
+            return contact;
         }
-
+        /// <summary>
+        /// Возвращает список контактов из файла по умолчанию.
+        /// </summary>
+        /// <returns>Список контактов.</returns>
+        public static Project LoadFromFile()
+        {
+            return LoadFromFile(DocumentsPath);
+        }
     }
 }
+
+
 
 
