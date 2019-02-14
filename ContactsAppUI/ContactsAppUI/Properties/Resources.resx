@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="text-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pic5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="no-translate-detected_318-10276" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\no-translate-detected_318-10276.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -126,5 +132,8 @@
   </data>
   <data name="no-translate-detected_318-102761" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\no-translate-detected_318-10276.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="112-1120650_blue-clipart-exclamation-mark-blue-exclamation-mark-sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\112-1120650_blue-clipart-exclamation-mark-blue-exclamation-mark-sign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

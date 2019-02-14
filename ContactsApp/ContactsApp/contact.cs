@@ -28,13 +28,7 @@ namespace ContactsApp
 
         private string _idVk;
 
-        private string UppercaseFirst(string s)
-        {
-            char[] a = s.ToCharArray();
-            a[0] = char.ToUpper(a[0]);
-            return new string(a);
-        }
-
+      
         /// <summary>
         /// Имя
         /// </summary>
@@ -42,7 +36,7 @@ namespace ContactsApp
         public string Name
         {
             get {
-                return(UppercaseFirst( _name));
+                return( _name);
             }
             set
             {
@@ -77,7 +71,7 @@ namespace ContactsApp
         public string SecondName
         {
             get {
-                return (UppercaseFirst(_secondName));
+                return (_secondName);
             }
             set
             {

@@ -212,7 +212,7 @@ namespace ContactsApp.UnitTests
         [Test(Description = "Позитивный тест сеттера Number")]
         public void Test_Contact_Number_Set_CorrectValue()
         {
-            var expected = 79139522613;
+            var expected = 79832398876;
             Assert.DoesNotThrow(
                 () => { _contact.Phone.Number = expected; },
                 "Тест не пройден, если выдаётся исключение");

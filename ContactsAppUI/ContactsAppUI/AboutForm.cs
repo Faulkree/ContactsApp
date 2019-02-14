@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ContactsAppUI
 {
-    public partial class Form3 : Form
+    public partial class AboutForm : Form
     {
-        public Form3()
+        public AboutForm()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
