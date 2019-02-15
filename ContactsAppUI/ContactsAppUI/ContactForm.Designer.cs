@@ -204,6 +204,7 @@
             this.Controls.Add(this.NameTextBox);
             this.Name = "ContactForm";
             this.Text = "Add/Edit Contact";
+//            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ContactForm_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -5,15 +5,15 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{3DA1F6C0-0F90-4B19-B62F-31F9CDED68D3}
-AppName=My Program
+AppId={{F18FE064-4A2A-4F04-8D67-2BA97378A392}
+AppName=ContactsApp
 AppVersion=1.5
-;AppVerName=My Program 1.5
+;AppVerName=ContactsApp 1.5
 AppPublisher=My Company, Inc.
 AppPublisherURL=http://www.example.com/
 AppSupportURL=http://www.example.com/
 AppUpdatesURL=http://www.example.com/
-DefaultDirName={pf}\My Program
+DefaultDirName={pf}\ContactsApp
 DisableProgramGroupPage=yes
 OutputBaseFilename=setup
 Compression=lzma
@@ -21,27 +21,28 @@ SolidCompression=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\ContactsApp.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\ContactsApp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\ContactsApp.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\ContactsApp.UnitTests.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\ContactsAppUI.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\nunit.engine.api.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\nunit.engine.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\nunit.framework.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Василиса\source\repos\ContactsApp\InstallScripts\Release\NUnit3.TestAdapter.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\ContactsApp.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\ContactsApp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\ContactsApp.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\ContactsApp.UnitTests.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\ContactsAppUI.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\nunit.engine.api.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\nunit.engine.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\nunit.framework.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Release\NUnit3.TestAdapter.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{commonprograms}\My Program"; Filename: "{app}\ContactsApp.exe"
-Name: "{commondesktop}\My Program"; Filename: "{app}\ContactsApp.exe"; Tasks: desktopicon
+Name: "{commonprograms}\ContactsApp"; Filename: "{app}\ContactsApp.exe"
+Name: "{commondesktop}\ContactsApp"; Filename: "{app}\ContactsApp.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\ContactsApp.exe"; Description: "{cm:LaunchProgram,My Program}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\ContactsApp.exe"; Description: "{cm:LaunchProgram,ContactsApp}"; Flags: nowait postinstall skipifsilent
 

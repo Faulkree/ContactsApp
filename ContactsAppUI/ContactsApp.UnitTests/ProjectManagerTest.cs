@@ -35,7 +35,7 @@ namespace ContactsApp.UnitTests
                  + "/source/repos/ContactsApp/ContactsAppUI/ContactsApp.UnitTests/ContactsAppTest1.txt");
 
             string reference = System.IO.File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-               + "/source/repos/ContactsApp/ContactsAppUI/ContactsApp.UnitTests/ContactsAppTest1.txt");
+               + "/source/repos/ContactsApp/ContactsAppUI/ContactsApp.UnitTests/ContactApp123.txt");
             string actual = System.IO.File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
               + "/source/repos/ContactsApp/ContactsAppUI/ContactsApp.UnitTests/ContactsAppTest1.txt");
 
@@ -49,7 +49,7 @@ namespace ContactsApp.UnitTests
             Project actualProject = new Project();
 
             actualProject = ProjectManager.LoadFromFile(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
-              "/source/repos/ContactsApp/ContactsAppUI/ContactsApp.UnitTests/ContactsAppTest1.txt");
+              "/source/repos/ContactsApp/ContactsAppUI/ContactsApp.UnitTests/ContactApp123.txt");
 
             Assert.AreEqual(_project._contactslistone.Count, actualProject._contactslistone.Count, "Загрузка работает некоректно1");
             for (int i = 0; i != _project._contactslistone.Count; i++)

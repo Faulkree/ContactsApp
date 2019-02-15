@@ -45,7 +45,8 @@ namespace ContactsAppUI
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-         
+            
+
         }
         public List<Contact> _contactslistone = new List<Contact>();
         private void button1_Click(object sender, EventArgs e)
@@ -83,15 +84,22 @@ namespace ContactsAppUI
         {
             {
                 var form2 = new ContactForm();
-                form2.Owner = this;
-                form2.ShowDialog();
+                //  form2.Owner = this;
+                //  form2.ShowDialog();
                 var UpdatedDate = form2.Data;
-                if (UpdatedDate != null)
+                var i = form2.ShowDialog();
+                if (i == DialogResult.OK)
                 {
-                    _project._contactslistone.Add(UpdatedDate._contactsplus);
-                    ContactlistBox.Items.Add(UpdatedDate.TxtBox);
-                    _project.Sort(_project._contactslistone);
+
+                        // ContactlistBox.Items.Add(_project._contactslistone[k].SecondName);
+                        _project._contactslistone.Add(UpdatedDate._contactsplus);
+                        ContactlistBox.Items.Add(UpdatedDate.TxtBox);
+                    /*  _project._contactslistone.Add(UpdatedDate._contactsplus);
+                      ContactlistBox.Items.Add(UpdatedDate.TxtBox);
+                      _project.Sort(_project._contactslistone);
+                      */
                 }
+               
                 ProjectManager.SaveToFile(_project, _path);
                 
             }

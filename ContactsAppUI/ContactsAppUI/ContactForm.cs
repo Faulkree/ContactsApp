@@ -14,21 +14,7 @@ namespace ContactsAppUI
     public partial class ContactForm : Form
     {
         private Contact _contactsplus = new Contact();
-     /*   public Contact Contact
-        {
-            get { return _contactsplus; }
-            set
-            {
-                _contactsplus = new Contact();
-                _contactsplus.SecondName = value.SecondName;
-                _contactsplus.Name = value.Name;
-                _contactsplus.Phone = value.Phone;
-                _contactsplus.Birth = value.Birth;
-                _contactsplus.Email = value.Email;
-                _contactsplus.IDVk = value.IDVk;
-            }
-        }
-        */
+   
         private PhoneNumber _phone = new PhoneNumber();
         public ContactForm()
         {
@@ -37,6 +23,7 @@ namespace ContactsAppUI
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            
             if (Data._contactsplus != null)
             {
                 SecondNameTextBox.Text = Data._contactsplus.SecondName;
@@ -46,6 +33,7 @@ namespace ContactsAppUI
                 BirthTimePicker.Value = Data._contactsplus.Birth;
                 PhoneTextBox.Text = Convert.ToString(Data._contactsplus.Phone.Number);
             }
+           
         }
         public class DataForm
         {
@@ -78,17 +66,18 @@ namespace ContactsAppUI
             try
             {
 
-                flag = true;
-                _phone.Number = System.Int64.Parse(PhoneTextBox.Text);
-                _contactsplus.SecondName = SecondNameTextBox.Text;
-                _contactsplus.Name = NameTextBox.Text;
-                _contactsplus.Birth = BirthTimePicker.Value;
-                _contactsplus.Phone = _phone;
-                _contactsplus.Email = EmailtextBox.Text;
-                _contactsplus.IDVk = VKtextBox.Text;
-                _data.TxtBox = _contactsplus.SecondName;
-                _data._contactsplus = _contactsplus;
-
+                     flag = true;
+                    _phone.Number = System.Int64.Parse(PhoneTextBox.Text);
+                    _contactsplus.SecondName = SecondNameTextBox.Text;
+                    _contactsplus.Name = NameTextBox.Text;
+                    _contactsplus.Birth = BirthTimePicker.Value;
+                    _contactsplus.Phone = _phone;
+                    _contactsplus.Email = EmailtextBox.Text;
+                    _contactsplus.IDVk = VKtextBox.Text;
+                    _data.TxtBox = _contactsplus.SecondName;
+                    _data._contactsplus = _contactsplus;
+                
+              
             }
             catch (Exception ex)
             {
@@ -175,5 +164,7 @@ namespace ContactsAppUI
                 VKtextBox.BackColor = Color.LightSalmon;
             }
         }
+
+        
     }
 }
